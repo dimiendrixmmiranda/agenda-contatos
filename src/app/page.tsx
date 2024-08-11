@@ -57,19 +57,23 @@ export default function Home() {
             telefone,
             observacoes
         }
-
-        push(referencia, novoContato)
-            .then(() => {
-                console.log("Contato gravado com sucesso!");
-                // Limpar os campos após a gravação, se necessário
-                setNome('');
-                setEmail('');
-                setTelefone('');
-                setObservacoes('');
-            })
-            .catch((error) => {
-                console.error("Erro ao gravar o contato: ", error);
-            });
+        console.log(novoContato)
+        if(novoContato.nome === '' || novoContato.email === '' || novoContato.telefone === ''){
+            alert('Campos inválidos! Revise e tente adiiconar novamente.')
+        }else{
+            push(referencia, novoContato)
+                .then(() => {
+                    console.log("Contato gravado com sucesso!");
+                    // Limpar os campos após a gravação, se necessário
+                    setNome('');
+                    setEmail('');
+                    setTelefone('');
+                    setObservacoes('');
+                })
+                .catch((error) => {
+                    console.error("Erro ao gravar o contato: ", error);
+                });
+        }
     }
 
     function realizarBusca(event: any) {

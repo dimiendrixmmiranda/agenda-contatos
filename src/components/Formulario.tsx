@@ -30,9 +30,6 @@ export default function Formulario(props: FormularioProps) {
                     type="text"
                     placeholder="Nome..."
                     onChange={(event) => props.setNome(event.target.value)}
-                    required
-                    minLength={2}
-                    maxLength={30}
                 />
 
                 <input
@@ -41,8 +38,6 @@ export default function Formulario(props: FormularioProps) {
                     type="email"
                     placeholder="Email..."
                     onChange={(event) => props.setEmail(event.target.value)}
-                    required
-                    minLength={4}
                 />
 
                 <InputMask value={props.telefone} onChange={(e) => props.setTelefone(`${e.target.value}`)} mask="(99) 9 9999-9999" placeholder="(99) 9 9999-9999" className="px-2 py-1 rounded-sm" required />
@@ -52,7 +47,6 @@ export default function Formulario(props: FormularioProps) {
                     className="px-2 py-1 rounded-sm"
                     placeholder="Observações"
                     onChange={(event) => props.setObservacoes(event.target.value)}
-                    maxLength={40}
                 />
 
                 {
